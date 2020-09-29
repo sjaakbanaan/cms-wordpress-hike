@@ -1,6 +1,6 @@
-import { parseISO, format } from 'date-fns'
+import { parseISO, format, formatDistance, subDays } from 'date-fns'
 
-export default function Date({ dateString }) {
+export default function DistanceDate({ dateString }) {
   const date = parseISO(dateString)
-  return <time dateTime={dateString}>{format(date, 'LLLL	d, yyyy')}</time>
+  return <time dateTime={dateString}>{formatDistance(subDays(date, 0), new Date())} ago</time>
 }

@@ -2,6 +2,22 @@
 
 /* Write your own custom base styles here */
 
+html {
+  @apply font-sans;
+  @apply text-gray-900;
+}
+
+body {
+  /*@apply bg-gray-200;*/
+  background-color: #ffe671;
+  @apply text-black;
+}
+
+body.dark-mode {
+  @apply bg-gray-900;
+  @apply text-white;
+}
+
 /* Start purging... */
 @tailwind components;
 /* Stop purging. */
@@ -13,6 +29,44 @@
 /* Stop purging. */
 
 /* Your own custom utilities */
+
+/* roboto-condensed-regular - latin */
+@font-face {
+  font-family: 'Roboto Condensed';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Roboto Condensed'), local('RobotoCondensed-Regular'),
+       url('../fonts/roboto-condensed-v18-latin-regular.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+       url('../fonts/roboto-condensed-v18-latin-regular.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+/* roboto-condensed-italic - latin */
+@font-face {
+  font-family: 'Roboto Condensed';
+  font-style: italic;
+  font-weight: 400;
+  src: local('Roboto Condensed Italic'), local('RobotoCondensed-Italic'),
+       url('../fonts/roboto-condensed-v18-latin-italic.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+       url('../fonts/roboto-condensed-v18-latin-italic.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+/* roboto-condensed-700 - latin */
+@font-face {
+  font-family: 'Roboto Condensed';
+  font-style: normal;
+  font-weight: 700;
+  src: local('Roboto Condensed Bold'), local('RobotoCondensed-Bold'),
+       url('../fonts/roboto-condensed-v18-latin-700.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+       url('../fonts/roboto-condensed-v18-latin-700.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+/* roboto-condensed-700italic - latin */
+@font-face {
+  font-family: 'Roboto Condensed';
+  font-style: italic;
+  font-weight: 700;
+  src: local('Roboto Condensed Bold Italic'), local('RobotoCondensed-BoldItalic'),
+       url('../fonts/roboto-condensed-v18-latin-700italic.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+       url('../fonts/roboto-condensed-v18-latin-700italic.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+
 
 .has-text-align-left {
   @apply text-left;
@@ -91,7 +145,6 @@
 
 .wp-block-cover {
   @apply flex flex-wrap justify-center items-center bg-cover bg-center overflow-hidden;
-
   min-height: 430px;
 }
 
@@ -101,4 +154,8 @@
 
 .wp-block-media-text {
   @apply grid grid-cols-2 gap-4;
+}
+
+.react-switch-handle {
+  box-shadow: none !important;
 }
