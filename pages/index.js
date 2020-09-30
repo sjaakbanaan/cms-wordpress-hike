@@ -8,21 +8,20 @@ import Layout from '../components/layout'
 import { getAllPostsForHome, getAllBeersForHome } from '../lib/api'
 
 export default function Index(
-    { allPosts: { edges }, preview, allCustomPosts: {} }
+    {allCustomPosts, allPosts}
   ) {
 
   return (
     <>
-      <Layout preview={preview}>
+      <Layout>
         <Head>
           <title>MABB</title>
         </Head>
         <Container>
           <Intro />
           <Main />
-          {edges.length > 0 && <AllStories posts={edges} />}
-          <hr />
-          {edges.length > 0 && <AllStories posts={edges} />}
+          {allCustomPosts.edges.length > 0 && <AllBeers beers={allCustomPosts.edges} />}
+          {allPosts.edges.length > 0 && <AllStories posts={allPosts.edges} />}
         </Container>
       </Layout>
     </>
@@ -30,14 +29,16 @@ export default function Index(
 }
 
 export async function getStaticProps({ preview = false }) {
-  const allPosts = await getAllPostsForHome(preview)
-  const allCustomPosts = await getAllBeersForHome(preview)
+  const allPostsData = await getAllPostsForHome()
+  const allPosts = allPostsData?.posts;
+
+  const allCustomPostsData = await getAllBeersForHome()
+  const allCustomPosts = allCustomPostsData?.beers;
 
   return {
     props: { 
       allPosts, 
-      allCustomPosts, 
-      preview 
+      allCustomPosts
     },
   }
 }

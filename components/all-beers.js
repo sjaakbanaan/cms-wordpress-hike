@@ -15,6 +15,7 @@ export default function AllBeers({ beers }) {
             date={node.date}
             slug={node.slug}
             excerpt={node.excerpt}
+            pt={'beers'}
           />
         ))}
       </div>
